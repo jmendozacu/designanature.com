@@ -1,0 +1,167 @@
+<?php
+$_slider['a'] = $this->getBannerSlider(3);
+$_slider['b'] = $this->getBannerSlider(4);
+
+function getCategory($_id)
+{
+	$category = Mage::getModel('catalog/category')->load($_id);
+	return $category;
+}
+
+function getCategories($_parentId , $_path = 1)
+{
+	$collection = Mage::getModel('catalog/category')->getCollection()
+        ->addAttributeToFilter('is_active', 1) //only active categories
+        ->addAttributeToFilter('parent_id', $_parentId);
+	
+	return $collection;
+	//print_r($collection->getItems());exit;
+	
+}
+
+$_mediaPath = Mage::getBaseUrl('media') . 'themevast/banner/';
+//echo $_mediaPath;exit;
+/*$_phoneAccId = 89;
+$_phonAcc['parent'] = getCategory($_phoneAccId);
+$_phonAcc['sub'] = getCategories($_phoneAccId);*/
+
+$_phonePartsId = 90;
+$_phoneParts['parent'] = getCategory($_phonePartsId);
+$_phoneParts['sub'] = getCategories($_phonePartsId);
+
+$_webUrl = Mage::getBaseUrl();
+?>
+
+<!--Mobile phone parts-->
+<section class="access-wrapper phone-parts">
+    <div class="access-content">
+        <div class="access-box container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 clearfix">
+                    <div class="kind-Slide right hidden-xs">
+                        <ul class="kind-SlideList">
+                        <!-- edit by mivec -->
+                        <?php
+						//edit by mivec
+						if ($_slider['b']):
+							foreach ($_slider['b']->getItems() as $_item) :
+							//print_r($_item->gettitle());exit;
+						?>
+                            <li class="item">
+                            <a href="<?php echo $_item->getLink()?>">
+                            <img src="<?php echo Mage::getBaseUrl('media') . $_item->getImage()?>" alt="<?php echo $_item->getTitle();?>">
+                            </a>
+                            </li>
+                        <?php endforeach;endif;?>
+                        </ul>
+                    </div>
+                </div>
+                <script type="text/javascript">	
+					jQuery(document).ready(function($){
+						$('.phone-parts .kind-SlideList').bxSlider({
+							  auto: true,
+							  speed: 800,
+							  pause: 4000,
+							  minSlides: 1,
+							  infiniteLoop: true,
+							  maxSlides: 1,
+							  slideWidth: 388,
+							  slideMargin: 0,
+							  autoHover: true,
+							  moveSlides:1,
+							  pager: true,
+							  controls:1,
+                        });
+                    });	
+                </script>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 hidden-xs">
+                    <div class="kind-R">
+                        <div class="kind-R1 left">
+                            <a href="<?php echo $_webUrl . "best-668-screwdriver-philips-ph000.html"?>">
+                                <img src="<?php echo $_mediaPath . "banner_slider_r2_repair.jpg"?>" alt="repair">
+                            </a>
+                        </div>
+                        <div class="kind-R2 right">
+                            <a href="<?php echo $_webUrl . "catalogsearch/result/?q=lcd&cat="?>" title="lcd?>">
+                                <img src="<?php echo $_mediaPath . "banner_slider_r2_lcd.jpg"?>" alt="lcd">
+                                <p>SONY </p>
+                            </a>
+                        </div>
+                        <div class="kind-R2 left">
+                            <a href="<?php echo $_webUrl . "catalogsearch/result/?q=battery&cat="?>" title="Battery">
+                                <img src="<?php echo $_mediaPath . "banner_slider_r2_battery.jpg"?>" alt="battery">
+                                <p>Beginner's Yoga</p>
+                            </a>
+                        </div>
+                        <div class="kind-R2 left">
+                            <a href="<?php echo $_webUrl . "catalogsearch/result/?q=flex+cable&cat="?>" title="Flex cable">
+							<img src="<?php echo $_mediaPath . "banner_slider_r2_flex_cable.jpg"?>" alt="flex cable">
+                                <p>Lens</p>
+                            </a>
+                        </div>
+                        <div class="kind-R2 right">
+                            <a href="<?php echo $_webUrl . "catalogsearch/result/?q=camera&cat="?>" title="Camera">
+                            <img src="<?php echo $_mediaPath . "banner_slider_r2_camera.jpg"?>" alt="camera">
+                                <p>Camera</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Service-->
+<style type="text/css">
+    .service{padding: 19px 0;font-size: 12px;margin-top: 20px;float: left;width: 100%;}
+    .service .service-item{padding: 20px 20px 20px 28px;border: 1px solid #dfdfdf; background-color: #ffffff;overflow: hidden;}
+    .service .service-item .icon{width: 92px;height: 92px;float: left;}
+    .service .service-item .info{padding-left: 110px;}
+    .service .service-item .info p{font-size: 13px; color: #666;margin: 0;line-height: normal;}
+    .service .service-item h3{ margin: 0 0 5px;padding: 0;text-transform: uppercase;font-size: 18px;color: #333;}
+    .service .service-item .info a{border-bottom: 1px solid transparent;font-size: 14px;color: #3366cc; padding-top: 10px;display: inline-block;line-height: normal;text-decoration: none;}
+    .service .service-item .info a:after{content: "\f101";font-family: FontAwesome;display: inline-block;padding-left: 10px;}
+    .service .service-item .info a:hover{border-color: #ff8400;color: #ff8400;}
+</style>
+<div class="service" style="margin:10px 0 30px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="service-item">
+                    <div class="icon"><img class="img-responsive" alt="services" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/s1.png"></div>
+                    <div class="info">
+                        <h3>Buyer Protection</h3>
+                        <p>Secure payments</p>
+                        <p>Guaranteed refunds</p>
+                        <p>Escrow protection on every oder</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="service-item">
+                    <div class="icon"><img class="img-responsive" alt="services" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/s2.png"></div>
+                    <div class="info">
+                        <h3>RETURN &amp; EXCHANGE</h3>
+                        <p>Wholesale products from certified</p>
+                        <p>Worldwide shipping</p>
+                        <p>Low prices from US $0.1</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="service-item">
+                    <div class="icon"><img class="img-responsive" alt="services" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/s3.png"></div>
+                    <div class="info">
+                        <h3>FREE DELIVERY</h3>
+                        <p>Wholesale products from certified</p>
+                        <p>Worldwide shipping</p>
+                        <p>Low prices from US $0.1</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
