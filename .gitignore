@@ -1,0 +1,10 @@
+/downloader/*.cfg/
+/media/catalog/
+/media/captcha/
+/var/cache/
+/var/session/
+/var/report/
+/var/log/
+/.idea/
+/app/etc/local.xml/
+sitemap.xml

@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /enable-cookies/
+Disallow: /catalog/product_compare/
+Disallow: /catalog/product/upload/
+Disallow: /catalogsearch/ajax/
+Disallow: /checkout/
+Disallow: /report/
+Disallow: /customer/
+Disallow: /wishlist/
+Disallow: /mivec/
+Disallow: /index.php/admin/
+Disallow: /
+
