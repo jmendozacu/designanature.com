@@ -45,7 +45,7 @@
 	.navbar .btn-navbar{margin:4px 10px 0 0;}
 	#tv-inivoslider{height:160px!important;}/*set height of slide*/
 	#tv-inivoslider .nivo-main-image{height:160px!important;}
-	.home-content .products-grid>li{/*width:145px!important;*/margin:0!important;}/*set featuredproduct*/
+	.home-content .products-grid>li{width:145px!important;margin:0!important;}/*set featuredproduct*/
 	.icon-new, .icon-sale{right:0;}
 	.searchautocomplete .searchautocomplete-placeholder{left:0;min-width:initial;max-width:initial;}
 	/*megamenu*/
@@ -54,14 +54,14 @@
 	.form-search input.input-text{height:30px;line-height:30px;}
 	.form-search button.button{height:30px;line-height:30px;overflow:hidden!important;}
 	.form-search button.button span span{padding:6px 10px;}
-	.banner-box{margin:0;}
+	.banner-box{margin:0;padding:0;}
 	.mobilemenu span.head{top:0;}
 	.mobilemenu span.head a{height:40px;width:40px;}
 	/*main-page*/
 	.main{padding:0;}
 	.main-left-box{margin-top:20px;}
 	.bx-controls-direction a.bx-prev,.bx-controls-direction a.bx-next{margin-top:-32px;}
-	.bx-title{margin-bottom:10px;}
+	.bx-title{margin-bottom:10px;margin-top:14px;}
 	.add-to-links{display:none;}
 	.seller-Head{margin-bottom:10px;}
 	.featuredproduct .bx-wrapper .bx-viewport{height:initial!important;}
@@ -104,7 +104,7 @@
     -webkit-animation: turn 2s linear infinite alternate;}
 	#navMask{position:fixed;z-index:1000;left:0;top:0;background:rgba(0,0,0,.8);width:0;height:100%;transition:all ease 0.35s;}
 	.menuShow{left:0!important;}
-	.block.block-layered-nav{position:absolute;z-index:1001;left:-800px;top:0;width:100%;transition:all ease 0.8s;}
+	.block.block-layered-nav{position:absolute;z-index:1001;left:-800px;top:0;width:100%;border-radius:5px;transition:all ease 0.8s;}
 	.block-compare{display:none!important;}
 	.products-list li.item .product-images{width:35%;}
 	.products-list li.item .product-shop{width:65%;}
@@ -162,6 +162,40 @@
 	.sorter .sort-by{margin:10px 0 0 0;}
 	.sorter .limiter{float:left;margin:10px 0 0 0;}
 	.sorter .sort-by>label,.sorter .limiter>label{display:inline-block;width:50px;}
+/*featureproduct*/
+	.featuredproduct{padding-bottom: 0;margin-bottom: 0;}
+	.featuredproduct .featuredBox{top:84px!important;}
+	.featuredproduct .bx-title .f-right{float: left!important;}
+	.featuredproduct .bx-title .f-right li>span{display: none;}
+	.featuredproduct .bx-title .f-right li.active>span{display: inline;}
+/*smartphone*/
+	.smartphone .leftbox{display: none;}
+	.smartphone .div-tabs{width: 100%!important;height:auto!important;}
+	.smartphone .ul-tabs{width:100%!important;}
+	.smartphone .ul-tabs>li{width:33.33%;float: left;height:110px;border:none;}
+	.ul-tabs > li.active > a:before{top: -5px!important;left:50%!important;}
+	.ul-tabs > li > a{display: block;width:100%;height: 100%;}
+/*brand-box*/
+	.brand-box>.container{padding: 0!important;}
+	.brand-box .block-image,.brand-box .block-content-right{width:100%!important;}
+	.brand-box .block-content-right{padding: 15px 15px 10px 15px!important;}
+	.brand-box .block-content-right .count-down-time{margin-top:10px;}
+	.brand-box .box-content .block-content-right .shop-now{margin-top:16px;}
+	.brand-box .box-content{padding: 14px!important;}
+	.count-down-time{position: relative;}
+	.count-down-time .icon-clock{position: absolute;top:4px;}
+	.countdown{margin-left:25px!important;}
+	.countdown .timer-box{padding: 0 10px 0 0!important;}
+	.timer-box:after{margin-left: 4px!important;}
+/*newproductslider*/
+	.newproductslider .products-grid li.item{width:50%!important;}
+	.newproductslider .products-grid li.item:nth-child(n+5){display: none!important;}
+	.banner-content2-wrapper .row>div:first-child{margin-bottom: 14px;}
+	.access-wrapper{margin: 0;}
+	.service .service-item{padding: 10px 10px 10px 14px!important;margin-bottom: 20px;}
+	.products-list li.item .box-images{width:auto;height:auto;}
+	.access-right{margin-top:20px;border-top:1px solid #e8e8e8;border-left:1px solid #e8e8e8;}
+	.kind-Slide .bx-wrapper .bx-viewport{height:auto!important;}
 }
 @media (min-width:768px){	
 	.drop-currency .currency-trigger .sub-currency{left:initial;right:0;}
@@ -199,6 +233,7 @@
 	.featuredproduct .box-images a>img{width:156px;height:156px;}
 	.dealproducts .box-images a>img{width:190px;height:190px;}
 	.brandlogo-contain .bxslider img{width:160px;height:80px;}
+	.banner-box .position2{margin-left: 269px;}
 }
 @media (max-width: 1280px){
 	.access-box.container{padding:0;}
