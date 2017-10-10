@@ -22,8 +22,8 @@ $_featureImgUrl = Mage::getBaseUrl();
     .featuredproduct .bx-wrapper .bx-controls-direction a.bx-prev{left:0;}
     .div-tabs>a{display: none;}
     .div-tabs>a.active{display: block;}
-    .ul-tabs > li{position: relative;display: block;height: 196px;border-bottom: 1px solid #dfdfdf;}
-    .ul-tabs > li > a{padding:13px;}
+    .ul-tabs > li{position: relative;display: block;height: 33.33%;border-bottom: 1px solid #dfdfdf;}
+    .ul-tabs > li > a{padding:13px;display: inline-block;}
     .ul-tabs > li:last-child {border-bottom: 0;}
     .ul-tabs > li.active > a:before {background-color: #fff;top: 50%;content: "";display: block;height: 10px;left: -5px;margin: 0;position: absolute;right: 0;transform: rotate(-45deg);-moz-transform: rotate(-45deg);-webkit-transform: rotate(-45deg);-o-transform: rotate(-45deg);width: 10px;}
     .img-responsive {display: block;height: auto;max-width: 100%;}
@@ -190,17 +190,17 @@ $_featureImgUrl = Mage::getBaseUrl();
 </div>
 
 <!--smartphone begin-->
-<div class="container smartphone">
+<div class="smartphone">
     <!--div class="bx-title"><h2>smartphone</h2></div-->
     <div class="row" style="background: #fff;">
         <div class="col-md-3 col-sm-3 leftbox">
-            <a href="#" style="display: block;height:590px;">
+            <a href="#" style="display: block;max-height:590px;">
                 <img class="img-responsive" src="<?php echo $_featureImgUrl.'\skin\frontend\tv_bigboom_package\tv_bigboom1\images\mivec\bl.jpg'?>" alt="">
             </a>
         </div>
-        <div class="col-md-9 col-sm-3">
+        <div class="col-md-9 col-sm-9">
             <div style="border-color: #dfdfdf;border-style: solid;border-width: 1px;" class="clearfix">
-                <div class="div-tabs f-left" style="width:80.6%;height:590px;">
+                <div class="div-tabs f-left" style="width:80.6%;max-height:590px;">
                     <a class="active" href="#">
                         <img src="<?php echo $_featureImgUrl.'\skin\frontend\tv_bigboom_package\tv_bigboom1\images\mivec\br1.jpg'?>" alt="br1">
                     </a>
@@ -211,7 +211,7 @@ $_featureImgUrl = Mage::getBaseUrl();
                         <img src="<?php echo $_featureImgUrl.'\skin\frontend\tv_bigboom_package\tv_bigboom1\images\mivec\br3.jpg'?>" alt="br3">
                     </a>
                 </div>
-                <ul class="ul-tabs f-right" style="width:19.4%;">
+                <ul class="ul-tabs f-right" style="width:19.4%;height: 100%;">
                     <li class="active"><a href="javascript:void(0)"><img src="<?php echo $_featureImgUrl.'\skin\frontend\tv_bigboom_package\tv_bigboom1\images\mivec\one1.jpg'?>" alt="one"></a></li>
                     <li><a href="javascript:void(0)"><img src="<?php echo $_featureImgUrl.'\skin\frontend\tv_bigboom_package\tv_bigboom1\images\mivec\two1.jpg'?>" alt="two"></a></li>
                     <li><a href="javascript:void(0)"><img src="<?php echo $_featureImgUrl.'\skin\frontend\tv_bigboom_package\tv_bigboom1\images\mivec\three1.jpg'?>" alt="three"></a></li>
