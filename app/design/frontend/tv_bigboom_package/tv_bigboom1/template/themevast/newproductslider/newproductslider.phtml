@@ -75,7 +75,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
                     </div>
                     <div class="alo-count-down count-down-time">
                         <span class="icon-clock"><span class="hidden">hidden</span></span>
-                        <div class="countdown caption" data-timer="11/30/2019"><div class="timer-box"><span class="day"><b>814</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>06</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>33</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>53</b></span><span class="title">Secs</span></div></div>
+                        <div class="countdown caption" data-timer="2019/11/30/0/0/0"><div class="timer-box"><span class="day"><b>00</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>00</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>00</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>00</b></span><span class="title">Secs</span></div></div>
                     </div>
                     <a href="#" class="shop-now">Shop Now</a>
                 </div>
@@ -102,7 +102,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
                     </div>
                     <div class="alo-count-down count-down-time">
                         <span class="icon-clock"><span class="hidden">hidden</span></span>
-                        <div class="countdown caption" data-timer="2/25/2018"><div class="timer-box"><span class="day"><b>164</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>12</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>46</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>12</b></span><span class="title">Secs</span></div></div>
+                        <div class="countdown caption" data-timer="2017/2/25/0/0/0"><div class="timer-box"><span class="day"><b>00</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>00</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>00</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>00</b></span><span class="title">Secs</span></div></div>
                     </div>
                     <a href="#" class="shop-now">Shop Now</a>
                 </div>
@@ -110,7 +110,57 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
         </div>
 	</div>
 </div>
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
 
+        var interval = 1000; //set time for make each change
+        var $timeCollect = document.getElementsByClassName("countdown");//get outer box
+        for(var i = $timeCollect.length-1;i >= 0;i--){//loop for each element
+            //$timeCollect[i].innerText
+            (function(){
+                var tmpLi = $timeCollect[i];
+                var tmpArr = tmpLi.getAttribute("data-timer").split("/");
+                window.setInterval(function(){
+                    tmpLi.innerHTML = ShowCountDown(tmpArr[0],tmpArr[1],tmpArr[2],tmpArr[3],tmpArr[4],tmpArr[5]);
+                },interval);
+            })();
+
+        }
+
+        function ShowCountDown(year,month,day,hour,minute,second)
+        {
+            var now = new Date();
+            var endDate = new Date(year, month-1, day,hour,minute,second);
+            var leftTime=endDate.getTime()-now.getTime();
+            if (leftTime <= 0){
+                return result = '<div class="day"><span class="title">Time out.</span></div>';
+                return;
+            }
+            var leftsecond = parseInt(leftTime/1000);
+            var day1=Math.floor(leftsecond/(60*60*24));
+            var hour=Math.floor((leftsecond-day1*24*60*60)/3600);
+            var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60);
+            var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60);
+            day1 = day1 < 10 ? '0'+day1:day1;
+            hour = hour < 10 ? '0'+hour:hour;
+            minute = minute < 10 ? '0'+minute:minute;
+            second = second < 10 ? '0'+second:second;
+            var result = '<div class="timer-box">' +
+                '<span class="day"><b>'+day1+'</b></span>' +
+                '<span class="title">Days</span></div>' +
+                '<div class="timer-box">' +
+                '<span class="hour"><b>'+hour+'</b></span>' +
+                '<span class="title">Hrs</span></div>' +
+                '<div class="timer-box">' +
+                '<span class="min"><b>'+minute+'</b></span>' +
+                '<span class="title">Mins</span></div>' +
+                '<div class="timer-box">' +
+                '<span class="sec"><b>'+second+'</b></span>' +
+                '<span class="title">Secs</span></div>';
+            return result;
+        }
+    }
+</script>
 <!-- Promotions -->
 <?php
 //$_productCollection=$this->getProductCollection();
