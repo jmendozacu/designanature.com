@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <mivec translate="title" module="promotion">
+            <title>MIVEC</title>
+            <sort_order>80</sort_order>
+            <children>
+                <promotion translate="title" module="promotion">
+                    <title>Promotion</title>
+                    <sort_order>30</sort_order>
+                    <children>
+                        <items translate="title" module="promotion">
+                            <title>Manage Widgets</title>
+                            <sort_order>0</sort_order>
+                            <action>promotion/adminhtml_widget</action>
+                        </items>
+                    </children>
+                </promotion>
+            </children>
+        </mivec>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <promotion>
+                                        <title>Promotion</title>
+                                    </promotion>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <mivec translate="title" module="promotion">
+                        <title>MIVEC</title>
+                        <sort_order>80</sort_order>
+                        <children>
+                            <promotion translate="title" module="promotion">
+                                <title>Promotion</title>
+                                <sort_order>30</sort_order>
+                                <children>
+                                    <items translate="title" module="promotion">
+                                        <title>Manage Widgets</title>
+                                        <sort_order>0</sort_order>
+                                        <action>promotion/adminhtml_widget</action>
+                                    </items>
+                                </children>
+                            </promotion>
+                        </children>
+                    </mivec>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+</config>

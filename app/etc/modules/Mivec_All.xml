@@ -21,6 +21,11 @@
             <codePool>local</codePool>
         </Mivec_Ship>
 
+        <Mivec_Promotion>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mivec_Promotion>
+
         <Mivec_Support>
             <active>false</active>
             <codePool>local</codePool>

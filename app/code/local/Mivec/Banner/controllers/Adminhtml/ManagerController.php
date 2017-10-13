@@ -80,7 +80,7 @@ class Mivec_Banner_Adminhtml_ManagerController extends Mage_Adminhtml_Controller
 				
 				//print_r($model);exit;
 				$model->save();
-				Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('brandlogo')->__('Item was successfully saved'));
+				Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('banner')->__('Item was successfully saved'));
 				Mage::getSingleton('adminhtml/session')->setFormData(false);
 
 				if ($this->getRequest()->getParam('back')) {

@@ -1,6 +1,14 @@
 <?php
 $webUrl = Mage::getBaseUrl();
 $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+
+$_mediaUrl = Mage::getBaseUrl("media");
+
+//the widget of promotion
+$_widget = Mage::getModel("promotion/widget")
+    ->getCollection()
+    ->addAttributeToFilter('status' , 1)
+    ->setOrder("id" , "DESC");
 ?>
 
 <!--img src="<?php //echo $this->getSkinUrl('images/home/bestseller.jpg');?>" />-->
@@ -14,8 +22,9 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
     .brand-box .block-image,.brand-box .block-content-right{float: left;}
     .brand-box .block-image{width: 58%;}
     .brand-box .block-content-right{width: 42%;padding-left: 30px;padding-top: 30px;}
+    .brand-box .block-content-right>h1{font-size: 40px;font-weight: bold;}
     .brand-box .products-textlink{margin-top: 25px;padding: 0;}
-    .brand-box .products-textlink .product-name a{font-size: 16px;}
+    .brand-box .products-textlink .product-name a{font-size: 20px;}
     .brand-box .products-textlink .special-price .price{font-size: 18px;font-weight: bold;color: #da3838;}
     .brand-box .products-textlink .old-price .price{font-size: 16px;}
     .count-down-time {
@@ -23,7 +32,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
         float: left;
         line-height: 31px;
         padding: 0 10px;
-        margin-top: 60px;
+        margin-top: 50px;
     }
     .count-down-time .icon-clock {background: rgba(0, 0, 0, 0) url("http://alothemes.com/demo/supermarket/skin/frontend/alosupermarket/default/images/alothemes/icon-clock.png") no-repeat scroll center center;display: inline-block;height: 20px;text-indent: -999em;vertical-align: middle;width: 18px;margin-right: 10px;}
     .countdown{margin: 0 auto;text-align: center;display: inline-block;vertical-align: middle;line-height: normal;}
@@ -35,7 +44,7 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
     .timer-box span b {line-height: 18px;color: #da3838;}
     .timer-box span.title{text-transform: uppercase;color: #333;padding-left: 2px;}
     .box-content .block-content-right .shop-now {
-        margin-top: 60px;
+        margin-top: 50px;
         line-height: 31px;
         background-color: #ff8400;
         color: #fff;
@@ -55,59 +64,56 @@ $skinUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
 		<h2>Promotions</h2>
 	</div>
 	<div class="container clearfix">
+
+        <?php $currency_code = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();?>
+        <?php
+        foreach ($_widget->getItems() as $_item) :
+            //get product object
+            $_product = Mage::getModel('catalog/product')
+                ->load($_item->getEntityId());
+
+            //echo $_product->getCreatedAt();exit;
+
+            $data = array(
+                "sku"   => $_product->getSku(),
+                "title"  => $_item->getTitle(),
+                "name"  => $_product->getName(),
+                "price" => $_product->getPrice(),
+                "price_speical" => $_product->getSpecialPrice(),
+                "image" => $_mediaUrl . $_item->getImage(),
+                "url"   => $_product->getProductUrl(),
+                //'time'  => date("Y/m/d/0/0/0" , strtotime($_product->getCreatedAt()) + (86400 * 90))
+                'time'  => date("Y/m/d/0/0/0" , (time() + (86400 * 30)))
+            );
+            //print_r($data);exit;
+        ?>
         <div class="box-content brand-one clearfix">
             <div class="block-image">
-                <img class="img-responsive" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/brand-sale1.jpg" alt="Brand Sale">
+                <img class="img-responsive" src="<?php echo $data['image']?>" alt="Brand Sale">
             </div>
             <div class="block-content-right">
-                <img class="img-responsive brand-logo" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/logo-brand1.png" alt="Brand Sale">
+                <h1><?php echo $data['title']?></h1>
                 <div class="products-textlink clearfix">
                     <h2 class="product-name">
-                        <a title="Sony Bravia Triluminos8" href="#">Sony Bravia Triluminos8</a>
+                        <a title="Sony Bravia Triluminos8" href="<?php echo $data['url']?>"><?php echo $data['name']?></a>
                     </h2>
                     <div class="price-box">
                         <p class="old-price">
-                            <span class="price">$250.00 </span>
+                            <span class="price"><?php echo $currency_code . $data['price']?></span>
                         </p>
                         <p class="special-price">
-                            <span class="price">$200.00</span>
+                            <span class="price"><?php echo $currency_code . $data['price_speical']?></span>
                         </p>
                     </div>
                     <div class="alo-count-down count-down-time">
                         <span class="icon-clock"><span class="hidden">hidden</span></span>
-                        <div class="countdown caption" data-timer="2019/11/30/0/0/0"><div class="timer-box"><span class="day"><b>00</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>00</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>00</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>00</b></span><span class="title">Secs</span></div></div>
+                        <div class="countdown caption" data-timer="<?php echo $data['time']?>"><div class="timer-box"><span class="day"><b>00</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>00</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>00</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>00</b></span><span class="title">Secs</span></div></div>
                     </div>
                     <a href="#" class="shop-now">Shop Now</a>
                 </div>
             </div>
         </div>
-
-        <div class="box-content brand-two clearfix">
-            <div class="block-image">
-                <img class="img-responsive" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/brand-sale2.jpg" alt="Brand Sale">
-            </div>
-            <div class="block-content-right">
-                <img class="img-responsive brand-logo" src="http://alothemes.com/demo/supermarket/media/wysiwyg/alothemes/static/demo1/logo-brand2.png" alt="Brand Sale">
-                <div class="products-textlink clearfix">
-                    <h2 class="product-name">
-                        <a title="Sony Bravia Triluminos8" href="#">Electroluxs Smartboost Premixes</a>
-                    </h2>
-                    <div class="price-box">
-                        <p class="old-price">
-                            <span class="price">$168.00 </span>
-                        </p>
-                        <p class="special-price">
-                            <span class="price">$150.00</span>
-                        </p>
-                    </div>
-                    <div class="alo-count-down count-down-time">
-                        <span class="icon-clock"><span class="hidden">hidden</span></span>
-                        <div class="countdown caption" data-timer="2017/2/25/0/0/0"><div class="timer-box"><span class="day"><b>00</b></span><span class="title">Days</span></div><div class="timer-box"><span class="hour"><b>00</b></span><span class="title">Hrs</span></div><div class="timer-box"><span class="min"><b>00</b></span><span class="title">Mins</span></div><div class="timer-box"><span class="sec"><b>00</b></span><span class="title">Secs</span></div></div>
-                    </div>
-                    <a href="#" class="shop-now">Shop Now</a>
-                </div>
-            </div>
-        </div>
+        <?php endforeach;?>
 	</div>
 </div>
 <script language="javascript" type="text/javascript">
