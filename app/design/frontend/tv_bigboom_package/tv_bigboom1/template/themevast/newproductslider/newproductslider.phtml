@@ -44,20 +44,33 @@ $_widget = Mage::getModel("promotion/widget")
     .timer-box span b {line-height: 18px;color: #da3838;}
     .timer-box span.title{text-transform: uppercase;color: #333;padding-left: 2px;}
     .box-content .block-content-right .shop-now {
-        margin-top: 50px;
-        line-height: 31px;
-        background-color: #ff8400;
-        color: #fff;
-        padding: 0 14px;
-        display: inline-block;
-        font-size: 14px;
-        text-transform: uppercase;
-        float: left;
-        font-weight: bold;
-        border-radius: 0 2px 2px 0;
+        margin-top: 50px;line-height: 31px;background-color: #ff8400;color: #fff;padding: 0 14px;
+        display: inline-block;font-size: 14px;text-transform: uppercase;float: left;font-weight: bold;border-radius: 0 2px 2px 0;
     }
     /*slide-multirows*/
     .slide-multirows .products-grid>li{float: left; list-style: none; position: relative; width: 234px;}
+    @media (max-width: 992px) and (min-width: 768px){
+        .brand-box .block-image,.brand-box .block-content-right{width: 100%;}
+        .brand-box .block-content-right{padding: 10px 0 0 10px;}
+        .brand-box .block-content-right>h1{font-size: 30px;}
+        .brand-box .products-textlink{margin-top: 4px;}
+        .count-down-time,.box-content .block-content-right .shop-now{margin-top: 4px;}
+    }
+    @media (max-width: 768px){
+        .brand-box>.container{padding: 0;}
+        .brand-box .block-image,.brand-box .block-content-right{width:100%;}
+        .brand-box .block-content-right{padding: 15px 15px 10px 15px;}
+        .brand-box .block-content-right>h1{font-size: 26px;}
+        .brand-box .products-textlink{margin-top: 4px;}
+        .brand-box .block-content-right .count-down-time,
+        .brand-box .box-content .block-content-right .shop-now{margin-top:10px;}
+        .brand-box .box-content{padding: 14px;}
+        .count-down-time{position: relative;}
+        .count-down-time .icon-clock{position: absolute;top:4px;}
+        .countdown{margin-left:25px}
+        .countdown .timer-box{padding: 0 10px 0 0}
+        .timer-box:after{margin-left: 4px}
+    }
 </style>
 <div class="brand-box clearfix">
 	<div class="bx-title">

@@ -2914,13 +2914,13 @@ footer {}
 .footer .store-switcher label { font-weight:bold; vertical-align:middle; }
 .footer .store-switcher select { padding:0; vertical-align:middle; }
 .footer a { color:#888; text-decoration:none; }
-.footer a:hover { text-decoration:  none; color: #fff; }
+.footer a:hover { text-decoration: underline; }
 .footer .bugs { margin:13px 0 0; color:#ecf3f6; }
 .footer .bugs a { color:#ecf3f6; text-decoration:underline; }
 .footer .bugs a:hover { text-decoration:none; }
 .footer address { text-align: left; width: 100%;  margin: 0; line-height: 30px; font-weight: normal; color: #333;padding-left:10px;font-size: 14px;}
 .footer address a { color:#333; }
-.footer address a:hover { text-decoration:none; }
+.footer address a:hover { text-decoration:underline; }
 .footer ul { display:inline; margin: 0;}
 .footer ul.links { display:block; }
 .footer ul.links li { display:inline; margin:0 5px ; border-right: 1px solid #444444; padding-right: 10px; }
