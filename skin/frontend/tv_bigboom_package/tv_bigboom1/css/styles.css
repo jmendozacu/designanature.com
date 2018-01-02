@@ -3740,4 +3740,6 @@ line-height: 70px;font-family: Arial;font-weight: 900;padding: 35px 0 27px;margi
 
 @media(max-width: 1199px){
     .fancybox-overlay, .fancybox-overlay-fixed, .fancybox-wrap { display: none !important;}
-    }
+   }
+/*new add by jerry*/
+.banner-content2-wrapper,.access-wrapper.phone-parts{display:none;}
