@@ -14,7 +14,7 @@ class Mivec_Banner_Block_Home_Slider extends Mage_Core_Block_Template
 			->getCollection()
 			->addAttributeToFilter('position' , $_position)
 			->addAttributeToFilter('status' , 1)
-			->setPageSize(5);
+			->setPageSize(3);
 		
 		return $banner;
 		//print_r($banner->getItems());exit;
